@@ -1,27 +1,26 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T15:31:08.743370+00:00",
+    "generated_at": "2026-03-06T15:36:53.295807+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
       "goals": 1,
       "goals_total": 2,
-      "queue_items": 2,
+      "queue_items": 3,
       "sources": 0,
       "evidence": 0,
       "assets": 3,
-      "runs": 2,
+      "runs": 4,
       "workers": 8,
       "dashboard_features": 3,
-      "scheduled_tasks": 2
+      "scheduled_tasks": 3
     },
     "breakdowns": {
       "goal_status": {
-        "paused": 1,
-        "active": 1
+        "active": 1,
+        "paused": 1
       },
       "queue_status": {
-        "running": 1,
-        "planned": 1
+        "running": 3
       },
       "relevance": {},
       "confidence": {},
@@ -41,6 +40,15 @@
   },
   "goals": [
     {
+      "goal_id": "sociologie-de-l-habitat",
+      "title": "Sociologie de l'habitat",
+      "question": "Which legally usable sources, images, maps, datasets, scans, and supplemental PDFs are most valuable for researching sociologie de l'habitat, and what answer-ready evidence can we extract from them?",
+      "scope_note": "Collect high-value non-text assets and evidence-bearing sources that materially improve understanding of habitat, housing forms, spatial patterns, and social context. Prefer legal, reusable, well-attributed sources and extractable evidence.",
+      "status": "active",
+      "created_at": "2026-03-06 14:43:37",
+      "updated_at": "2026-03-06 15:34:17"
+    },
+    {
       "goal_id": "tracker-ops",
       "title": "Tracker Operations",
       "question": "What tracker, dashboard, exporter, or automation changes are needed to keep the research dashboard accurate, useful, and publishable?",
@@ -48,18 +56,20 @@
       "status": "paused",
       "created_at": "2026-03-06 15:11:00",
       "updated_at": "2026-03-06 15:11:00"
-    },
-    {
-      "goal_id": "sociologie-de-l-habitat",
-      "title": "Sociologie de l'habitat",
-      "question": "Which legally usable images, maps, datasets, scans, and supplemental PDFs are most valuable for researching sociologie de l'habitat, and where can they be fetched with provenance and licensing?",
-      "scope_note": "Start with high-value non-text assets and supplemental files that materially improve understanding of habitat, housing forms, spatial patterns, and social context. Prefer legal, reusable, well-attributed sources.",
-      "status": "active",
-      "created_at": "2026-03-06 14:43:37",
-      "updated_at": "2026-03-06 14:43:37"
     }
   ],
   "queue_items": [
+    {
+      "id": "e215c4b0-fc37-474d-ab8b-274bd9a0345c",
+      "goal_id": "sociologie-de-l-habitat",
+      "assigned_role": "Claire",
+      "task_type": "discovery",
+      "status": "running",
+      "priority": 2,
+      "question": "Discover 5-8 evidence-bearing legal sources on sociologie de l'habitat that can produce cited claims, not just datasets or images. Prioritize reports, articles, and studies with stable metadata and likely full-text access.",
+      "due_at": null,
+      "updated_at": "2026-03-06 15:36:07"
+    },
     {
       "id": "05155f5e-e2d5-457d-afdf-a445b5677c59",
       "goal_id": "sociologie-de-l-habitat",
@@ -76,11 +86,11 @@
       "goal_id": "sociologie-de-l-habitat",
       "assigned_role": "John",
       "task_type": "gap-review",
-      "status": "planned",
+      "status": "running",
       "priority": 3,
       "question": "After initial Iris artifact batch, identify top 3-5 bounded gaps/questions to tighten sociologie de l'habitat coverage.",
       "due_at": null,
-      "updated_at": "2026-03-06 15:25:33"
+      "updated_at": "2026-03-06 15:36:07"
     }
   ],
   "sources": [],
@@ -313,9 +323,22 @@
       "name": "research-tracker-publisher",
       "description": "Export, validate, and publish the research tracker to the public GitHub Pages repo when it changes",
       "schedule": "cron */5 * * * * @ Europe/Brussels",
-      "next_run_at": "2026-03-06T15:30:52.366000+00:00",
-      "last_run_at": "2026-03-06T15:25:52.376000+00:00",
+      "next_run_at": "2026-03-06T15:35:52.366000+00:00",
+      "last_run_at": "2026-03-06T15:30:52.371000+00:00",
       "last_status": "ok",
+      "delivery_mode": "none",
+      "delivery_channel": "last",
+      "delivery_target": null,
+      "session_target": "isolated"
+    },
+    {
+      "id": "9ec90d62-5f67-4cff-8f17-d772964b2455",
+      "name": "philip-progress-pulse",
+      "description": "Frequent Philip orchestration pulse for active research goals and partial worker outputs",
+      "schedule": "cron */15 * * * * @ Europe/Brussels",
+      "next_run_at": "2026-03-06T15:45:16.514000+00:00",
+      "last_run_at": null,
+      "last_status": null,
       "delivery_mode": "none",
       "delivery_channel": "last",
       "delivery_target": null,
@@ -366,10 +389,10 @@
       "status": "active",
       "purpose": "Discovery, ranking, dedupe, and metadata normalization.",
       "max_active_queue": 2,
-      "active_queue_items": 0,
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
+      "active_queue_items": 1,
+      "last_run_at": "2026-03-06 15:36:07",
+      "days_since_last_run": 0,
+      "runs_total": 1,
       "runs_done_7d": 0
     },
     {
@@ -390,10 +413,10 @@
       "status": "active",
       "purpose": "Gap analysis, scope drift review, and next-question proposals.",
       "max_active_queue": 1,
-      "active_queue_items": 0,
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
+      "active_queue_items": 1,
+      "last_run_at": "2026-03-06 15:36:07",
+      "days_since_last_run": 0,
+      "runs_total": 1,
       "runs_done_7d": 0
     },
     {
