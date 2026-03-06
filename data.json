@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "generated_at": "2026-03-06T14:26:23.324988+00:00",
+    "db_path": "research/db/research.sqlite",
+    "totals": {
+      "goals": 0,
+      "queue_items": 0,
+      "sources": 0,
+      "evidence": 0,
+      "assets": 0
+    },
+    "breakdowns": {
+      "queue_status": {},
+      "relevance": {},
+      "confidence": {}
+    }
+  },
+  "goals": [],
+  "queue_items": [],
+  "sources": [],
+  "evidence": [],
+  "assets": []
+}
