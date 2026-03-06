@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T15:10:58.443238+00:00",
+    "generated_at": "2026-03-06T15:11:23.457276+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
-      "goals": 1,
+      "goals": 2,
       "queue_items": 1,
       "sources": 0,
       "evidence": 0,
       "assets": 0,
       "runs": 0,
       "workers": 8,
-      "dashboard_features": 0,
+      "dashboard_features": 2,
       "scheduled_tasks": 2
     },
     "breakdowns": {
@@ -23,7 +23,9 @@
         "core": 7,
         "specialist": 1
       },
-      "dashboard_features": {}
+      "dashboard_features": {
+        "active": 2
+      }
     },
     "integrity": {
       "ok": true,
@@ -32,6 +34,15 @@
     }
   },
   "goals": [
+    {
+      "goal_id": "tracker-ops",
+      "title": "Tracker Operations",
+      "question": "What tracker, dashboard, exporter, or automation changes are needed to keep the research dashboard accurate, useful, and publishable?",
+      "scope_note": "Cross-cutting operational goal for dashboard feature prep, worker steering, exporter changes, and scheduled publication visibility.",
+      "status": "paused",
+      "created_at": "2026-03-06 15:11:00",
+      "updated_at": "2026-03-06 15:11:00"
+    },
     {
       "goal_id": "sociologie-de-l-habitat",
       "title": "Sociologie de l'habitat",
@@ -140,15 +151,70 @@
       "updated_at": "2026-03-06 15:10:46"
     }
   ],
-  "dashboard_features": [],
+  "dashboard_features": [
+    {
+      "id": "dashboard-change-chain",
+      "view_id": "contracts",
+      "title": "Dashboard changes steer workers and data contracts",
+      "status": "active",
+      "owner_role": "Sabine",
+      "requested_by": "user",
+      "requested_at": "2026-03-06 15:11:12",
+      "backfill_status": "done",
+      "implementation_note": "Dashboard requests must create data-contract and worker-steering updates before the UI depends on new fields.",
+      "updated_at": "2026-03-06 15:11:12",
+      "required_fields": [
+        "dashboard_features[].owner_role",
+        "dashboard_features[].producer_roles",
+        "dashboard_features[].required_fields",
+        "workers[].role",
+        "workers[].worker_type",
+        "workers[].max_active_queue"
+      ],
+      "producer_roles": [
+        "Sabine",
+        "Philip"
+      ],
+      "automation_refs": [
+        "philip-daily-research"
+      ]
+    },
+    {
+      "id": "pipeline-programmed-tasks",
+      "view_id": "queue",
+      "title": "Pipeline view includes future programmed tasks",
+      "status": "active",
+      "owner_role": "Sabine",
+      "requested_by": "user",
+      "requested_at": "2026-03-06 15:11:12",
+      "backfill_status": "done",
+      "implementation_note": "Expose scheduled research automations in the Pipeline tasks view alongside live queue items.",
+      "updated_at": "2026-03-06 15:11:12",
+      "required_fields": [
+        "scheduled_tasks[].name",
+        "scheduled_tasks[].schedule",
+        "scheduled_tasks[].next_run_at",
+        "scheduled_tasks[].last_status",
+        "queue_items[].status"
+      ],
+      "producer_roles": [
+        "Philip",
+        "Sabine"
+      ],
+      "automation_refs": [
+        "philip-daily-research",
+        "research-tracker-publisher"
+      ]
+    }
+  ],
   "scheduled_tasks": [
     {
       "id": "019add38-1224-40ed-8103-bc7cf2c64ddd",
       "name": "research-tracker-publisher",
       "description": "Export, validate, and publish the research tracker to the public GitHub Pages repo when it changes",
       "schedule": "cron */5 * * * * @ Europe/Brussels",
-      "next_run_at": "2026-03-06T15:10:52.366000+00:00",
-      "last_run_at": "2026-03-06T15:05:52.371000+00:00",
+      "next_run_at": "2026-03-06T15:15:52.366000+00:00",
+      "last_run_at": "2026-03-06T15:10:52.371000+00:00",
       "last_status": "ok",
       "delivery_mode": "none",
       "delivery_channel": "last",
