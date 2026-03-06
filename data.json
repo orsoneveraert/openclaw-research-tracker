@@ -1,15 +1,15 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T15:23:42.733414+00:00",
+    "generated_at": "2026-03-06T15:25:55.101156+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
       "goals": 1,
       "goals_total": 2,
-      "queue_items": 1,
+      "queue_items": 2,
       "sources": 0,
       "evidence": 0,
       "assets": 0,
-      "runs": 0,
+      "runs": 1,
       "workers": 8,
       "dashboard_features": 3,
       "scheduled_tasks": 2
@@ -20,7 +20,8 @@
         "active": 1
       },
       "queue_status": {
-        "ready": 1
+        "running": 1,
+        "planned": 1
       },
       "relevance": {},
       "confidence": {},
@@ -64,11 +65,22 @@
       "goal_id": "sociologie-de-l-habitat",
       "assigned_role": "Iris",
       "task_type": "artifact-collection",
-      "status": "ready",
+      "status": "running",
       "priority": 2,
       "question": "Collect 5-10 high-value legal assets for sociologie de l'habitat: images, maps, datasets, scans, and supplemental PDFs. Record provenance, license status, relevance reason, and local paths when fetched.",
       "due_at": null,
-      "updated_at": "2026-03-06 14:43:37"
+      "updated_at": "2026-03-06 15:25:33"
+    },
+    {
+      "id": "e7eb3c87-4a29-4e37-8b03-f949e02209f4",
+      "goal_id": "sociologie-de-l-habitat",
+      "assigned_role": "John",
+      "task_type": "gap-review",
+      "status": "planned",
+      "priority": 3,
+      "question": "After initial Iris artifact batch, identify top 3-5 bounded gaps/questions to tighten sociologie de l'habitat coverage.",
+      "due_at": null,
+      "updated_at": "2026-03-06 15:25:33"
     }
   ],
   "sources": [],
@@ -318,9 +330,9 @@
       "purpose": "Collection of images, maps, datasets, scans, and supplemental files.",
       "max_active_queue": 2,
       "active_queue_items": 1,
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
+      "last_run_at": "2026-03-06 15:25:33",
+      "days_since_last_run": 0,
+      "runs_total": 1,
       "runs_done_7d": 0
     },
     {
