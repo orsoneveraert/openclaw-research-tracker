@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T14:48:15.196445+00:00",
+    "generated_at": "2026-03-06T15:10:58.443238+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
       "goals": 1,
@@ -8,14 +8,22 @@
       "sources": 0,
       "evidence": 0,
       "assets": 0,
-      "runs": 0
+      "runs": 0,
+      "workers": 8,
+      "dashboard_features": 0,
+      "scheduled_tasks": 2
     },
     "breakdowns": {
       "queue_status": {
         "ready": 1
       },
       "relevance": {},
-      "confidence": {}
+      "confidence": {},
+      "worker_types": {
+        "core": 7,
+        "specialist": 1
+      },
+      "dashboard_features": {}
     },
     "integrity": {
       "ok": true,
@@ -50,37 +58,125 @@
   "sources": [],
   "evidence": [],
   "assets": [],
-  "role_activity": [
+  "workers": [
     {
-      "role": "Philip",
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
-      "runs_done_7d": 0
+      "role": "Boris",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Evidence extraction with claims, citations, locators, and confidence.",
+      "dispatch_note": "Own answer-ready evidence from fetched text or PDFs.",
+      "max_active_queue": 2,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
+    },
+    {
+      "role": "Catherine",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Targeted translation for non-English source segments.",
+      "dispatch_note": "Use only when language blocks extraction or review.",
+      "max_active_queue": 1,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
     },
     {
       "role": "Claire",
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
-      "runs_done_7d": 0
-    },
-    {
-      "role": "Retriever",
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
-      "runs_done_7d": 0
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Discovery, ranking, dedupe, and metadata normalization.",
+      "dispatch_note": "Own discovery, canonical ids, and relevance scoring.",
+      "max_active_queue": 2,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
     },
     {
       "role": "Iris",
-      "last_run_at": null,
-      "days_since_last_run": null,
-      "runs_total": 0,
-      "runs_done_7d": 0
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Collection of images, maps, datasets, scans, and supplemental files.",
+      "dispatch_note": "Own non-text artifacts with licensing and provenance.",
+      "max_active_queue": 2,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
     },
     {
+      "role": "John",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Gap analysis, scope drift review, and next-question proposals.",
+      "dispatch_note": "Use after batches or when progress stalls.",
+      "max_active_queue": 1,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
+    },
+    {
+      "role": "Philip",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Main orchestrator for intake, dispatch, synthesis, and publication.",
+      "dispatch_note": "Own queue shaping, daily reports, publishing, and cross-worker retries.",
+      "max_active_queue": 4,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
+    },
+    {
+      "role": "Retriever",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Legal full-text access checks and fetch tracking for evidence-bearing sources.",
+      "dispatch_note": "Own access-state transitions and local fetch provenance.",
+      "max_active_queue": 2,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
+    },
+    {
+      "role": "Sabine",
+      "worker_type": "specialist",
+      "status": "active",
+      "purpose": "Dashboard and data-contract steward for tracker features and backfills.",
+      "dispatch_note": "Own dashboard feature requests, data requirements, worker steering, and tracker readiness.",
+      "max_active_queue": 2,
+      "created_at": "2026-03-06 15:10:46",
+      "updated_at": "2026-03-06 15:10:46"
+    }
+  ],
+  "dashboard_features": [],
+  "scheduled_tasks": [
+    {
+      "id": "019add38-1224-40ed-8103-bc7cf2c64ddd",
+      "name": "research-tracker-publisher",
+      "description": "Export, validate, and publish the research tracker to the public GitHub Pages repo when it changes",
+      "schedule": "cron */5 * * * * @ Europe/Brussels",
+      "next_run_at": "2026-03-06T15:10:52.366000+00:00",
+      "last_run_at": "2026-03-06T15:05:52.371000+00:00",
+      "last_status": "ok",
+      "delivery_mode": "none",
+      "delivery_channel": "last",
+      "delivery_target": null,
+      "session_target": "isolated"
+    },
+    {
+      "id": "ee23dc76-0e8b-4bf5-b896-b21ea7e278ae",
+      "name": "philip-daily-research",
+      "description": "Daily Philip research orchestration for the research workspace",
+      "schedule": "cron 45 14 * * * @ Europe/Brussels",
+      "next_run_at": "2026-03-07T13:45:00+00:00",
+      "last_run_at": "2026-03-06T13:45:47.729000+00:00",
+      "last_status": "ok",
+      "delivery_mode": "announce",
+      "delivery_channel": "telegram",
+      "delivery_target": "-1003833276102",
+      "session_target": "isolated"
+    }
+  ],
+  "role_activity": [
+    {
       "role": "Boris",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Evidence extraction with claims, citations, locators, and confidence.",
+      "max_active_queue": 2,
+      "active_queue_items": 0,
       "last_run_at": null,
       "days_since_last_run": null,
       "runs_total": 0,
@@ -88,6 +184,35 @@
     },
     {
       "role": "Catherine",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Targeted translation for non-English source segments.",
+      "max_active_queue": 1,
+      "active_queue_items": 0,
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Claire",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Discovery, ranking, dedupe, and metadata normalization.",
+      "max_active_queue": 2,
+      "active_queue_items": 0,
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Iris",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Collection of images, maps, datasets, scans, and supplemental files.",
+      "max_active_queue": 2,
+      "active_queue_items": 1,
       "last_run_at": null,
       "days_since_last_run": null,
       "runs_total": 0,
@@ -95,6 +220,47 @@
     },
     {
       "role": "John",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Gap analysis, scope drift review, and next-question proposals.",
+      "max_active_queue": 1,
+      "active_queue_items": 0,
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Philip",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Main orchestrator for intake, dispatch, synthesis, and publication.",
+      "max_active_queue": 4,
+      "active_queue_items": 0,
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Retriever",
+      "worker_type": "core",
+      "status": "active",
+      "purpose": "Legal full-text access checks and fetch tracking for evidence-bearing sources.",
+      "max_active_queue": 2,
+      "active_queue_items": 0,
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Sabine",
+      "worker_type": "specialist",
+      "status": "active",
+      "purpose": "Dashboard and data-contract steward for tracker features and backfills.",
+      "max_active_queue": 2,
+      "active_queue_items": 0,
       "last_run_at": null,
       "days_since_last_run": null,
       "runs_total": 0,
