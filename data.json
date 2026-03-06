@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T15:25:55.101156+00:00",
+    "generated_at": "2026-03-06T15:31:08.743370+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
       "goals": 1,
@@ -8,8 +8,8 @@
       "queue_items": 2,
       "sources": 0,
       "evidence": 0,
-      "assets": 0,
-      "runs": 1,
+      "assets": 3,
+      "runs": 2,
       "workers": 8,
       "dashboard_features": 3,
       "scheduled_tasks": 2
@@ -85,7 +85,56 @@
   ],
   "sources": [],
   "evidence": [],
-  "assets": [],
+  "assets": [
+    {
+      "id": "70de837260014e564e7348fd37f0fce8",
+      "goal_id": "sociologie-de-l-habitat",
+      "source_id": null,
+      "source_title": "Eurostat ilc_lvho05a – Housing cost overburden rate by tenure status",
+      "title": "Eurostat ilc_lvho05a – Housing cost overburden rate by tenure status",
+      "kind": "dataset",
+      "path": "https://ec.europa.eu/eurostat/databrowser/view/ilc_lvho05a/default/table?lang=en",
+      "source_url": "https://ec.europa.eu/eurostat/databrowser/view/ilc_lvho05a/default/table?lang=en",
+      "local_path": null,
+      "license_status": "open-access",
+      "fetch_status": "linked",
+      "relevance_level": "high",
+      "relevance_reason": "Comparative EU indicator for housing affordability stress, useful for contextualizing French habitat inequalities within broader socio-economic patterns.",
+      "fetched_at": "2026-03-06 15:27:17"
+    },
+    {
+      "id": "7a04ba00679689c9162b8fc1860309ed",
+      "goal_id": "sociologie-de-l-habitat",
+      "source_id": null,
+      "source_title": "Répertoire des logements locatifs des bailleurs sociaux (RPLS)",
+      "title": "Répertoire des logements locatifs des bailleurs sociaux (RPLS)",
+      "kind": "dataset",
+      "path": "https://www.data.gouv.fr/datasets/repertoire-des-logements-locatifs-des-bailleurs-sociaux",
+      "source_url": "https://www.data.gouv.fr/datasets/repertoire-des-logements-locatifs-des-bailleurs-sociaux",
+      "local_path": null,
+      "license_status": "cc",
+      "fetch_status": "linked",
+      "relevance_level": "high",
+      "relevance_reason": "Core stock-level dataset for social housing supply, tenure structure, and territorial inequalities in habitat policies.",
+      "fetched_at": "2026-03-06 15:27:11"
+    },
+    {
+      "id": "79cfbf6d2bff5b54b9671ef1a0292d71",
+      "goal_id": "sociologie-de-l-habitat",
+      "source_id": null,
+      "source_title": "Demandes de valeurs foncières (DVF) – mutations immobilières en France",
+      "title": "Demandes de valeurs foncières (DVF) – mutations immobilières en France",
+      "kind": "dataset",
+      "path": "https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres",
+      "source_url": "https://www.data.gouv.fr/datasets/demandes-de-valeurs-foncieres",
+      "local_path": null,
+      "license_status": "cc",
+      "fetch_status": "linked",
+      "relevance_level": "high",
+      "relevance_reason": "Transaction-level property and dwelling market data enables fine-grained socio-spatial analysis of housing dynamics, price stratification, and neighborhood change.",
+      "fetched_at": "2026-03-06 15:27:06"
+    }
+  ],
   "workers": [
     {
       "role": "Boris",
@@ -264,8 +313,8 @@
       "name": "research-tracker-publisher",
       "description": "Export, validate, and publish the research tracker to the public GitHub Pages repo when it changes",
       "schedule": "cron */5 * * * * @ Europe/Brussels",
-      "next_run_at": "2026-03-06T15:25:52.366000+00:00",
-      "last_run_at": "2026-03-06T15:20:52.374000+00:00",
+      "next_run_at": "2026-03-06T15:30:52.366000+00:00",
+      "last_run_at": "2026-03-06T15:25:52.376000+00:00",
       "last_status": "ok",
       "delivery_mode": "none",
       "delivery_channel": "last",
@@ -330,10 +379,10 @@
       "purpose": "Collection of images, maps, datasets, scans, and supplemental files.",
       "max_active_queue": 2,
       "active_queue_items": 1,
-      "last_run_at": "2026-03-06 15:25:33",
+      "last_run_at": "2026-03-06 15:27:22",
       "days_since_last_run": 0,
-      "runs_total": 1,
-      "runs_done_7d": 0
+      "runs_total": 2,
+      "runs_done_7d": 1
     },
     {
       "role": "John",
