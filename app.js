@@ -5,6 +5,7 @@ const views = [
   { id: 'assets', label: 'Documents / Images / Carto' },
   { id: 'evidence', label: 'Evidence & claims' },
   { id: 'queue', label: 'Pipeline tasks' },
+  { id: 'agents', label: 'Cadence agents' },
 ];
 
 const menu = document.getElementById('menu');
@@ -18,6 +19,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<'
 function renderOverview(data) {
   const totals = data.meta?.totals || {};
   const b = data.meta?.breakdowns || {};
+  const integrity = data.meta?.integrity || {};
   return `
     <div class="grid">
       <div class="card"><div class="small">Goals</div><div class="kpi">${totals.goals || 0}</div></div>
@@ -25,6 +27,7 @@ function renderOverview(data) {
       <div class="card"><div class="small">Sources</div><div class="kpi">${totals.sources || 0}</div></div>
       <div class="card"><div class="small">Evidence</div><div class="kpi">${totals.evidence || 0}</div></div>
       <div class="card"><div class="small">Assets</div><div class="kpi">${totals.assets || 0}</div></div>
+      <div class="card"><div class="small">Intégrité</div><div class="kpi">${integrity.ok ? 'OK' : '⚠️ ' + (integrity.count || 0)}</div></div>
     </div>
     <div class="card" style="margin-top:12px;">
       <h3>Breakdowns</h3>
@@ -87,6 +90,18 @@ function renderQueue(data) {
     </tr>`);
 }
 
+function renderAgents(data) {
+  const rows = data.role_activity || [];
+  return tableWithSearch(rows, ['role', 'last_run_at'], (r) => `
+    <tr>
+      <td>${badge(r.role)}</td>
+      <td>${esc(r.last_run_at || 'never')}</td>
+      <td>${r.days_since_last_run == null ? '—' : `${r.days_since_last_run}j`}</td>
+      <td>${esc(r.runs_done_7d || 0)}</td>
+      <td>${esc(r.runs_total || 0)}</td>
+    </tr>`);
+}
+
 function tableWithSearch(rows, fields, rowRenderer) {
   const id = `s-${Math.random().toString(36).slice(2, 7)}`;
   const htmlRows = rows.map((r) => `<tbody data-scope="${id}">${rowRenderer(r)}</tbody>`).join('');
@@ -105,7 +120,7 @@ function tableWithSearch(rows, fields, rowRenderer) {
   return `<input class='input' id='${id}' placeholder='Filtrer…' /><table class='table'>${htmlRows || '<tr><td>Aucune donnée</td></tr>'}</table>`;
 }
 
-const renderers = { overview: renderOverview, sources: renderSources, relevance: renderRelevance, assets: renderAssets, evidence: renderEvidence, queue: renderQueue };
+const renderers = { overview: renderOverview, sources: renderSources, relevance: renderRelevance, assets: renderAssets, evidence: renderEvidence, queue: renderQueue, agents: renderAgents };
 
 function setView(id, data) {
   viewTitle.textContent = views.find((v) => v.id === id)?.label || id;

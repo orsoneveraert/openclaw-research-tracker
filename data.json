@@ -1,23 +1,104 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T14:26:23.324988+00:00",
+    "generated_at": "2026-03-06T14:48:15.196445+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
-      "goals": 0,
-      "queue_items": 0,
+      "goals": 1,
+      "queue_items": 1,
       "sources": 0,
       "evidence": 0,
-      "assets": 0
+      "assets": 0,
+      "runs": 0
     },
     "breakdowns": {
-      "queue_status": {},
+      "queue_status": {
+        "ready": 1
+      },
       "relevance": {},
       "confidence": {}
+    },
+    "integrity": {
+      "ok": true,
+      "count": 0,
+      "issues": []
     }
   },
-  "goals": [],
-  "queue_items": [],
+  "goals": [
+    {
+      "goal_id": "sociologie-de-l-habitat",
+      "title": "Sociologie de l'habitat",
+      "question": "Which legally usable images, maps, datasets, scans, and supplemental PDFs are most valuable for researching sociologie de l'habitat, and where can they be fetched with provenance and licensing?",
+      "scope_note": "Start with high-value non-text assets and supplemental files that materially improve understanding of habitat, housing forms, spatial patterns, and social context. Prefer legal, reusable, well-attributed sources.",
+      "status": "active",
+      "created_at": "2026-03-06 14:43:37",
+      "updated_at": "2026-03-06 14:43:37"
+    }
+  ],
+  "queue_items": [
+    {
+      "id": "05155f5e-e2d5-457d-afdf-a445b5677c59",
+      "goal_id": "sociologie-de-l-habitat",
+      "assigned_role": "Iris",
+      "task_type": "artifact-collection",
+      "status": "ready",
+      "priority": 2,
+      "question": "Collect 5-10 high-value legal assets for sociologie de l'habitat: images, maps, datasets, scans, and supplemental PDFs. Record provenance, license status, relevance reason, and local paths when fetched.",
+      "due_at": null,
+      "updated_at": "2026-03-06 14:43:37"
+    }
+  ],
   "sources": [],
   "evidence": [],
-  "assets": []
+  "assets": [],
+  "role_activity": [
+    {
+      "role": "Philip",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Claire",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Retriever",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Iris",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Boris",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "Catherine",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    },
+    {
+      "role": "John",
+      "last_run_at": null,
+      "days_since_last_run": null,
+      "runs_total": 0,
+      "runs_done_7d": 0
+    }
+  ]
 }
