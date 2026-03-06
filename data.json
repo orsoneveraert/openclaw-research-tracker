@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T15:21:01.449474+00:00",
+    "generated_at": "2026-03-06T15:23:42.733414+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
       "goals": 1,
@@ -11,7 +11,7 @@
       "assets": 0,
       "runs": 0,
       "workers": 8,
-      "dashboard_features": 2,
+      "dashboard_features": 3,
       "scheduled_tasks": 2
     },
     "breakdowns": {
@@ -29,7 +29,7 @@
         "specialist": 1
       },
       "dashboard_features": {
-        "active": 2
+        "active": 3
       }
     },
     "integrity": {
@@ -158,6 +158,40 @@
   ],
   "dashboard_features": [
     {
+      "id": "partial-in-progress-publication",
+      "view_id": "queue",
+      "title": "Publish in-progress worker research early",
+      "status": "active",
+      "owner_role": "Sabine",
+      "requested_by": "user",
+      "requested_at": "2026-03-06 15:23:26",
+      "backfill_status": "done",
+      "implementation_note": "User explicitly authorized early publication of DB-ready intermediate worker outputs on the dashboard while tasks remain running or blocked.",
+      "updated_at": "2026-03-06 15:23:26",
+      "required_fields": [
+        "queue_items[].status",
+        "sources[].title",
+        "sources[].relevance_level",
+        "assets[].title",
+        "evidence[].claim",
+        "questions[].question"
+      ],
+      "producer_roles": [
+        "Philip",
+        "Claire",
+        "Retriever",
+        "Iris",
+        "Boris",
+        "Catherine",
+        "John",
+        "Sabine"
+      ],
+      "automation_refs": [
+        "philip-daily-research",
+        "research-tracker-publisher"
+      ]
+    },
+    {
       "id": "dashboard-change-chain",
       "view_id": "contracts",
       "title": "Dashboard changes steer workers and data contracts",
@@ -218,8 +252,8 @@
       "name": "research-tracker-publisher",
       "description": "Export, validate, and publish the research tracker to the public GitHub Pages repo when it changes",
       "schedule": "cron */5 * * * * @ Europe/Brussels",
-      "next_run_at": "2026-03-06T15:20:52.366000+00:00",
-      "last_run_at": "2026-03-06T15:15:52.372000+00:00",
+      "next_run_at": "2026-03-06T15:25:52.366000+00:00",
+      "last_run_at": "2026-03-06T15:20:52.374000+00:00",
       "last_status": "ok",
       "delivery_mode": "none",
       "delivery_channel": "last",
