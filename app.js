@@ -23,7 +23,7 @@ function renderOverview(data) {
   const integrity = data.meta?.integrity || {};
   return `
     <div class="grid">
-      <div class="card"><div class="small">Goals</div><div class="kpi">${totals.goals || 0}</div></div>
+      <div class="card"><div class="small">Goals actifs</div><div class="kpi">${totals.goals || 0}</div></div>
       <div class="card"><div class="small">Queue items</div><div class="kpi">${totals.queue_items || 0}</div></div>
       <div class="card"><div class="small">Sources</div><div class="kpi">${totals.sources || 0}</div></div>
       <div class="card"><div class="small">Evidence</div><div class="kpi">${totals.evidence || 0}</div></div>
@@ -33,6 +33,7 @@ function renderOverview(data) {
     </div>
     <div class="card" style="margin-top:12px;">
       <h3>Breakdowns</h3>
+      <p class="small">Goals: ${Object.entries(b.goal_status || {}).map(([k,v])=>`${k}:${v}`).join(' · ') || 'n/a'}</p>
       <p class="small">Queue: ${Object.entries(b.queue_status || {}).map(([k,v])=>`${k}:${v}`).join(' · ') || 'n/a'}</p>
       <p class="small">Pertinence: ${Object.entries(b.relevance || {}).map(([k,v])=>`${k}:${v}`).join(' · ') || 'n/a'}</p>
       <p class="small">Confiance: ${Object.entries(b.confidence || {}).map(([k,v])=>`${k}:${v}`).join(' · ') || 'n/a'}</p>

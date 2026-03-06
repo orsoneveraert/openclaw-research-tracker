@@ -1,9 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-03-06T15:11:23.457276+00:00",
+    "generated_at": "2026-03-06T15:12:41.871876+00:00",
     "db_path": "research/db/research.sqlite",
     "totals": {
-      "goals": 2,
+      "goals": 1,
+      "goals_total": 2,
       "queue_items": 1,
       "sources": 0,
       "evidence": 0,
@@ -14,6 +15,10 @@
       "scheduled_tasks": 2
     },
     "breakdowns": {
+      "goal_status": {
+        "paused": 1,
+        "active": 1
+      },
       "queue_status": {
         "ready": 1
       },
